@@ -1,0 +1,15 @@
+fs=44100;
+t=0:1/fs:5;
+threshold = 0.1;
+
+
+input=0*t;
+
+level_estimate = 1*exp(-t);
+gain = min(1.0.1./level_estimate;
+
+plot(t,gain);
+
+% hold on;
+% output = 0.9*exp(-t)+0.1;
+% plot(t,output);

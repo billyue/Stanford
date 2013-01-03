@@ -1,0 +1,34 @@
+% Mayank Sanganeria / Lab 2-1
+
+fs    = 44100;
+t     = 2;
+f     = 441;
+f_max = fs/2;
+
+%square wave - odd harmonics, scales harmonic
+harmonics = f : f*2 : f_max;
+scale = 1 : 2 : 2*length(harmonics);
+scale = 1./scale;
+
+y=additive(harmonics,scale,fs,t,'square.wav');
+
+%triangle wave - odd harmonics, sclaes harmonic num^2
+
+harmonics = f : f*2 : f_max;
+scale = harmonics;
+for n=1:length(harmonics)
+    scale(n) = (-1)^(n-1)/(2*n-1)^2;
+end
+
+
+y=additive(harmonics,scale,fs,t,'triangle.wav');
+
+plot(y)
+
+%sawtooth wave - all harmonics, harmonic number
+
+harmonics = f : f : f_max;
+scale = 1 : length(harmonics);
+scale = 1./scale;
+
+y=additive(harmonics,scale,fs,t,'sawtooth.wav');

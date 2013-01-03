@@ -1,0 +1,7 @@
+% question 1a
+
+[x,fs] = wavread('linearSweep.wav');
+[y,fs] = wavread('sweep1a.wav');
+
+subplot(2,1,1), spectrogram(x,1024)
+subplot(2,1,2), spectrogram(y,1024)
